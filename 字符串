@@ -1,0 +1,42 @@
+python可以操作字符串，用单引号（' '）或者双引号(" ")都可以。
+反斜杠(\)用于转义。例如：
+>>> 'spam eggs'  #single quotes
+'spam eggs'
+>>> 'doesn\'t'  #use \' to escape the single quote...
+"doesn't"
+>>> "doesn't"  # or use th double quotes instead
+"doesn't"
+>>> '"Yes,"they said.'
+'"Yes,"they said.'
+>>> '"Isn\'t,"they said.'
+'"Isn\'t,"they said.'
+交互式解释器会为输出的字符串加注引号，特殊字符使用反斜杠转义。
+虽然，有时输出的字符串看起来与输入的字符串不一样（外加的引号可能会改变），
+但两个字符串是相同的。如果字符串中有单引号而没有双引号，该字符串外将加注双引号，
+反之，则加注单引号。print() 函数输出的内容更简洁易读，它会省略两边的引号，并输出转义后的特殊字符：
+>>> '"Isn\'t," they said.'
+'"Isn\'t," they said.'
+>>> print('"Isn\'t," they said.')
+"Isn't," they said.
+>>> s = 'First line.\nSecond line.'  # \n means newline
+>>> s  # without print(), \n is included in the output
+'First line.\nSecond line.'
+>>> print(s)  # with print(), \n produces a new line
+First line.
+Second line.
+如果不希望前置 \ 的字符转义成特殊字符，可以使用 原始字符串，在引号前添加 r 即可：
+>>> print('C:\some\name')  # here \n means newline!
+C:\some
+ame
+>>> print(r'C:\some\name')  # note the r before the quote
+C:\some\name
+字符串字面值可以实现跨行连续输入。实现方式是用三引号："""...""" 或 '''...'''，
+字符串行尾会自动加上回车换行，如果不需要回车换行，在行尾添加 \ 即可。示例如下：
+print("""\
+Usage: thingy [OPTIONS]
+     -h                        Display this usage message
+     -H hostname               Hostname to connect to
+""")
+字符串可以用 + 合并（粘到一起），也可以用 * 重复：
+>>> 3 * 'un' + 'ium'
+'unununium'
